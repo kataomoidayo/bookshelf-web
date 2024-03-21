@@ -6,22 +6,20 @@ function addBook(bookData) {
     const { id, title, author, year, finished } = bookData;
 
     const textTitle = document.createElement(`h3`);
-    // textTitle.id = "book-title";
+    textTitle.classList.add(`font-bold`, `text-2xl`);
     textTitle.innerText = title;
 
     const textAuthor = document.createElement('p');
-    // textAuthor.id = "book-author";
     textAuthor.innerText = `Authors : ${author}`;
 
     const textYear = document.createElement(`p`);
-    // textYear.id = "book-year";
     textYear.innerText = `Years : ${year}`;
 
     if (finished) {
         const finishedBookContainer = document.getElementById(`completeBookshelfList`);
         const card = document.createElement(`div`);
         card.id = `card`;
-        card.classList.add(`flex`, `flex-col`, `items-start`, `p-5`, `border-2`, `border-gray-700`, `rounded-lg`);
+        card.classList.add(`flex`, `flex-col`, `items-start`, `p-5`, `border-2`, `border-gray-400`, `rounded-lg`, `drop-shadow`);
         card.appendChild(textTitle);
         card.appendChild(textAuthor);
         card.appendChild(textYear);
@@ -34,16 +32,16 @@ function addBook(bookData) {
         card.appendChild(buttonContainer);
 
         const deleteButton = addDeleteButton(id);
-        const changeStatusButton = addChangeStatusButton(id, true);
-
         buttonContainer.appendChild(deleteButton);
+
+        const changeStatusButton = addChangeStatusButton(id, true);
         buttonContainer.appendChild(changeStatusButton);
 
     } else {
         const unfinishedBookContainer = document.getElementById(`incompleteBookshelfList`);
         const card = document.createElement(`div`);
         card.id = `card`;
-        card.classList.add(`flex`, `flex-col`, `items-start`, `p-5`, `border-2`, `border-gray-700`, `rounded-lg`);
+        card.classList.add(`flex`, `flex-col`, `items-start`, `p-5`, `border-2`, `border-gray-400`, `rounded-lg`, `drop-shadow`);
         card.appendChild(textTitle);
         card.appendChild(textAuthor);
         card.appendChild(textYear);
@@ -56,9 +54,9 @@ function addBook(bookData) {
         card.appendChild(buttonContainer);
 
         const deleteButton = addDeleteButton(id);
-        const changeStatusButton = addChangeStatusButton(id, false);
-
         buttonContainer.appendChild(deleteButton);
+
+        const changeStatusButton = addChangeStatusButton(id, false);
         buttonContainer.appendChild(changeStatusButton);
     }
 }
@@ -96,10 +94,12 @@ function searchBook() {
     const filteredBook = books.filter((book) => book.title.toLowerCase().includes(searchValue));
 
     const unfinishedEmptyText = document.createElement(`p`);
-    unfinishedEmptyText.innerText = `No book with title ${searchValue} on the uncompleted list`;
+    unfinishedEmptyText.classList.add("text-center", "w-full", "font-bold");
+    unfinishedEmptyText.innerText = `No book with title ${searchValue} on the unfinished list`;
 
     const finishedEmptyText = document.createElement(`p`);
-    finishedEmptyText.innerText = `No book with title ${searchValue} on the completed list`;
+    finishedEmptyText.classList.add("text-center", "w-full", "font-bold");
+    finishedEmptyText.innerText = `No book with title ${searchValue} on the finished list`;
 
     const filterUnfinished = filteredBook.filter((book) => !book.finished);
     const filterFinished = filteredBook.filter((book) => book.finished);
@@ -131,16 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bookForm = document.getElementById(`inputBook`);
     const inputSearch = document.getElementById(`searchBookTitle`);
-    const searchButton = document.getElementById(`searchSubmit`);
 
     bookForm.addEventListener(`submit`, (ev) => {
         ev.preventDefault();
         insertToShelf();
-    });
-
-    searchButton.addEventListener(`submit`, (ev) => {
-        ev.preventDefault();
-        searchBook();
     });
 
     inputSearch.addEventListener(`change`, () => {
@@ -153,10 +147,12 @@ document.addEventListener(RENDER_EVENT, () => {
     const finishedBook = document.getElementById(`completeBookshelfList`);
 
     const unfinishedEmptyText = document.createElement(`p`);
-    unfinishedEmptyText.innerText = `No book on the uncompleted list yet`;
+    unfinishedEmptyText.classList.add("text-center", "w-full", "font-bold");
+    unfinishedEmptyText.innerText = `No book on the unfinished list yet`;
 
     const finishedEmptyText = document.createElement(`p`);
-    finishedEmptyText.innerText = `No book on the completed list yet`;
+    finishedEmptyText.classList.add("text-center", "w-full", "font-bold");
+    finishedEmptyText.innerText = `No book on the finished list yet`;
 
     const filterUnfinished = books.filter((book) => !book.finished);
     const filterFinished = books.filter((book) => book.finished);

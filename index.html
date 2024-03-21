@@ -4,64 +4,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bookshelf Apps</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./styles/output.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-  <header class="p-4 flex bg-violet-400 justify-between items-center sticky top-0">
-    <h1 class="head_bar__title text-white text-2xl font-bold cursor-pointer">Bookshelf Apps
+  <header class="p-2 flex bg-white justify-between items-center border-b-2 drop-shadow-sm sticky top-0">
+    <h1 class="head_bar__title text-2xl font-bold cursor-pointer">Bookshelf Apps
     </h1>
-    <form id="searchBook" class="flex gap-5 p-5 rounded-l">
-      <input id="searchBookTitle" class="p-2 border-2 rounded-lg w-56" type="text" placeholder="Search title">
-      <button id="searchSubmit" class="bg-violet-500 text-white px-5 rounded-lg" type="button">Cari</button>
-    </form>
+    <div id="searchBook" class="flex gap-5 p-2 rounded-l">
+      <div class="relative text-gray-600 focus-within:text-gray-400">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+          <i type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              viewBox="0 0 24 24" class="w-6 h-6">
+              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </i>
+        </span>
+        <input id="searchBookTitle" name="search" class="p-2 text-sm border-2 rounded-md pl-10"
+          placeholder="Search title">
+      </div>
+    </div>
   </header>
   <main>
     <section class="input_section px-10 py-5">
       <div class="container mx-auto">
-        <h2 class="text-center text-2xl font-bold mb-4 self-center">Add Book</h2>
-        <form id="inputBook" class="flex flex-col gap-5 border-2 border-violet-500 p-5 rounded-l">
+        <form id="inputBook" class="flex flex-col gap-5 border-2 border-gray-400 p-5 rounded-lg">
+          <h2 class="text-center text-2xl font-bold mb-4 self-center">Add Book</h2>
           <div class="input flex flex-col gap-2">
-            <label for="inputBookTitle">Title</label>
-            <input id="inputBookTitle" class="p-2 border-2 rounded-lg" type="text" required>
+            <label for="inputBookTitle" class="font-bold">Title</label>
+            <input id="inputBookTitle" class="p-2 border-2 rounded-lg border-gray-400" type="text"
+              placeholder="The Rabbit" required>
           </div>
           <div class="input flex flex-col gap-2">
-            <label for="inputBookAuthor">Authors</label>
-            <input id="inputBookAuthor" class="p-2 border-2 rounded-lg" type="text" required>
+            <label for="inputBookAuthor" class="font-bold">Authors</label>
+            <input id="inputBookAuthor" class="p-2 border-2 rounded-lg border-gray-400" type="text" placeholder="Sergey"
+              required>
           </div>
           <div class="input flex flex-col gap-2">
-            <label for="inputBookYear">Year</label>
-            <input id="inputBookYear" class="p-2 border-2 rounded-lg" type="number" required>
+            <label for="inputBookYear" class="font-bold">Year</label>
+            <input id="inputBookYear" class="p-2 border-2 rounded-lg border-gray-400" type="number" placeholder="2024"
+              required>
           </div>
           <div class="flex flex-row gap-2 items-center">
             <label for="inputBookIsComplete" class="font-bold">Mark as finished</label>
-            <input id="inputBookIsComplete" class="p-2 border-2 rounded-lg" type="checkbox">
+            <input id="inputBookIsComplete" class="p-2 border-2 rounded-lg accent-violet-500" type="checkbox">
           </div>
-          <button id="bookSubmit" type="submit" class="bg-violet-500 text-white p-2 rounded-lg">Add Book</span></button>
+          <button id="bookSubmit" type="submit"
+            class="bg-violet-500 text-white p-3 font-bold rounded-lg hover:bg-violet-600">Add
+            Book</span></button>
         </form>
       </div>
     </section>
-
-    <!-- <section class="search_section" class="px-10 py-5">
-      <div class="container mx-auto">
-        <h2>Cari Buku (Opsional)</h2>
-        <div>
-          <form id="searchBook" class="flex flex-col gap-5 border-2 border-black p-5 rounded-l">
-            <label for="searchBookTitle">Judul</label>
-            <input id="searchBookTitle" class="p-2 border-2 rounded-lg" type="text">
-            <button id="searchSubmit" class="bg-violet-500 text-white p-2 rounded-lg" type="button">Cari</button>
-          </form>
-        </div>
-      </div>
-    </section> -->
-
     <section class="book_shelf px-10 py-5">
-      <div class="container mx-auto border-2 border-violet-500 p-5 rounded-lg flex flex-col gap-5">
+      <div class="container mx-auto border-2 border-gray-400 p-5 rounded-lg flex flex-col gap-5">
         <h2 class="text-2xl font-bold mb-4 self-center">Unfinished</h2>
         <div id="incompleteBookshelfList" class="book_list flex flex-row flex-wrap gap-5">
           <!--      <article class="book_item">-->
@@ -79,7 +81,7 @@
     </section>
 
     <section class="book_shelf px-10 py-5">
-      <div class="container mx-auto border-2 border-violet-500 p-5 rounded-lg flex flex-col gap-5">
+      <div class="container mx-auto border-2 border-gray-400 p-5 rounded-lg flex flex-col gap-5">
         <h2 class="text-2xl font-bold mb-4 self-center">Finished</h2>
         <div id="completeBookshelfList" class="book_list flex flex-row flex-wrap gap-5">
           <!--      <article class="book_item">-->
@@ -96,9 +98,12 @@
       </div>
     </section>
   </main>
-
+  <footer class="bg-white text-center border-t-2 p-4">
+    <p class="p-4"> &#169;
+      <script>document.write(new Date().getFullYear());</script> PUTU ADI SAPUTRA
+    </p>
+  </footer>
   <script src="./script/index.js" type="module"></script>
-
 </body>
 
 </html>

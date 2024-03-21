@@ -17,18 +17,9 @@ function changeBookStatus(id) {
 }
 
 function addDeleteButton(id) {
-    const changeStatusBtn = document.createElement(`button`);
-    changeStatusBtn.id = `button-change-status`;
-    changeStatusBtn.classList.add(`bg-green-500`, `text-black`, `p-2`, `rounded-lg`, `hover:bg-green-900`);
-    changeStatusBtn.innerText = `Unfinished`;
-    changeStatusBtn.addEventListener(`click`, () => {
-        changeBookStatus(id);
-        document.dispatchEvent(new Event(RENDER_EVENT));
-    });
-
     const deleteButton = document.createElement(`button`);
     deleteButton.id = `button-delete`;
-    deleteButton.classList.add(`bg-red-500`, `text-black`, `p-2`, `rounded-lg`, `hover:bg-red-900`);
+    deleteButton.classList.add(`p-2`, `rounded-lg`, `w-24`, `text-white`, `font-normal`, `bg-violet-500`, `hover:bg-violet-600`);
     deleteButton.innerText = `Delete`;
     deleteButton.addEventListener(`click`, () => {
         deleteBook(id);
@@ -40,7 +31,7 @@ function addDeleteButton(id) {
 function addChangeStatusButton(id, finished) {
     const changeStatusButton = document.createElement(`button`);
     changeStatusButton.id = `button-change-status`;
-    changeStatusButton.classList.add(`bg-green-500`, `ext-black`, `p-2`, `rounded-lg`, `hover:bg-green-900`);
+    changeStatusButton.classList.add(`p-2`, `rounded-lg`, `w-24`, `text-white`, `font-normal`, `bg-violet-500`, `hover:bg-violet-600`);
     changeStatusButton.innerText = finished
         ? `Unfinished`
         : `Finished`;

@@ -57,8 +57,4 @@ function loadDataFromStorage() {
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
-// function refreshPage() {
-//     document.location.reload()
-// }refreshPage
-
 export { localStorageExist, generateId, generateBookObject, findBookId, findBookIndex, saveBook, loadDataFromStorage, };
