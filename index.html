@@ -9,82 +9,95 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/output.css">
 </head>
 
 <body>
-  <header class="head_bar">
-    <h1 class="head_bar__title">Bookshelf Apps</h1>
+  <header class="p-4 flex bg-violet-400 justify-between items-center sticky top-0">
+    <h1 class="head_bar__title text-white text-2xl font-bold cursor-pointer">Bookshelf Apps
+    </h1>
+    <form id="searchBook" class="flex gap-5 p-5 rounded-l">
+      <input id="searchBookTitle" class="p-2 border-2 rounded-lg w-56" type="text" placeholder="Search title">
+      <button id="searchSubmit" class="bg-violet-500 text-white px-5 rounded-lg" type="button">Cari</button>
+    </form>
   </header>
   <main>
-    <section class="input_section">
-      <h2>Masukkan Buku Baru</h2>
-      <form id="inputBook">
-        <div class="input">
-          <label for="inputBookTitle">Judul</label>
-          <input id="inputBookTitle" type="text" required>
-        </div>
-        <div class="input">
-          <label for="inputBookAuthor">Penulis</label>
-          <input id="inputBookAuthor" type="text" required>
-        </div>
-        <div class="input">
-          <label for="inputBookYear">Tahun</label>
-          <input id="inputBookYear" type="number" required>
-        </div>
-        <div class="input_inline">
-          <label for="inputBookIsComplete">Selesai dibaca</label>
-          <input id="inputBookIsComplete" type="checkbox">
-        </div>
-        <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
-      </form>
-    </section>
-
-    <section class="search_section">
-      <h2>Cari Buku (Opsional)</h2>
-      <form id="searchBook">
-        <label for="searchBookTitle">Judul</label>
-        <input id="searchBookTitle" type="text">
-        <button id="searchSubmit" type="submit">Cari</button>
-      </form>
-    </section>
-
-    <section class="book_shelf">
-      <h2>Belum selesai dibaca</h2>
-
-      <div id="incompleteBookshelfList" class="book_list">
-        <!--      <article class="book_item">-->
-        <!--        <h3>Book Title</h3>-->
-        <!--        <p>Penulis: John Doe</p>-->
-        <!--        <p>Tahun: 2002</p>-->
-        <!--    -->
-        <!--        <div class="action">-->
-        <!--          <button class="green">Selesai dibaca</button>-->
-        <!--          <button class="red">Hapus buku</button>-->
-        <!--        </div>-->
-        <!--      </article>-->
+    <section class="input_section px-10 py-5">
+      <div class="container mx-auto">
+        <h2 class="text-center text-2xl font-bold mb-4 self-center">Add Book</h2>
+        <form id="inputBook" class="flex flex-col gap-5 border-2 border-violet-500 p-5 rounded-l">
+          <div class="input flex flex-col gap-2">
+            <label for="inputBookTitle">Title</label>
+            <input id="inputBookTitle" class="p-2 border-2 rounded-lg" type="text" required>
+          </div>
+          <div class="input flex flex-col gap-2">
+            <label for="inputBookAuthor">Authors</label>
+            <input id="inputBookAuthor" class="p-2 border-2 rounded-lg" type="text" required>
+          </div>
+          <div class="input flex flex-col gap-2">
+            <label for="inputBookYear">Year</label>
+            <input id="inputBookYear" class="p-2 border-2 rounded-lg" type="number" required>
+          </div>
+          <div class="flex flex-row gap-2 items-center">
+            <label for="inputBookIsComplete" class="font-bold">Mark as finished</label>
+            <input id="inputBookIsComplete" class="p-2 border-2 rounded-lg" type="checkbox">
+          </div>
+          <button id="bookSubmit" type="submit" class="bg-violet-500 text-white p-2 rounded-lg">Add Book</span></button>
+        </form>
       </div>
     </section>
 
-    <section class="book_shelf">
-      <h2>Selesai dibaca</h2>
+    <!-- <section class="search_section" class="px-10 py-5">
+      <div class="container mx-auto">
+        <h2>Cari Buku (Opsional)</h2>
+        <div>
+          <form id="searchBook" class="flex flex-col gap-5 border-2 border-black p-5 rounded-l">
+            <label for="searchBookTitle">Judul</label>
+            <input id="searchBookTitle" class="p-2 border-2 rounded-lg" type="text">
+            <button id="searchSubmit" class="bg-violet-500 text-white p-2 rounded-lg" type="button">Cari</button>
+          </form>
+        </div>
+      </div>
+    </section> -->
 
-      <div id="completeBookshelfList" class="book_list">
-        <!--      <article class="book_item">-->
-        <!--        <h3>Book Title</h3>-->
-        <!--        <p>Penulis: John Doe</p>-->
-        <!--        <p>Tahun: 2002</p>-->
-        <!--        -->
-        <!--        <div class="action">-->
-        <!--          <button class="green">Belum selesai di Baca</button>-->
-        <!--          <button class="red">Hapus buku</button>-->
-        <!--        </div>-->
-        <!--      </article>-->
+    <section class="book_shelf px-10 py-5">
+      <div class="container mx-auto border-2 border-violet-500 p-5 rounded-lg flex flex-col gap-5">
+        <h2 class="text-2xl font-bold mb-4 self-center">Unfinished</h2>
+        <div id="incompleteBookshelfList" class="book_list flex flex-row flex-wrap gap-5">
+          <!--      <article class="book_item">-->
+          <!--        <h3>Book Title</h3>-->
+          <!--        <p>Penulis: John Doe</p>-->
+          <!--        <p>Tahun: 2002</p>-->
+          <!--    -->
+          <!--        <div class="action">-->
+          <!--          <button class="green">Selesai dibaca</button>-->
+          <!--          <button class="red">Hapus buku</button>-->
+          <!--        </div>-->
+          <!--      </article>-->
+        </div>
+      </div>
+    </section>
+
+    <section class="book_shelf px-10 py-5">
+      <div class="container mx-auto border-2 border-violet-500 p-5 rounded-lg flex flex-col gap-5">
+        <h2 class="text-2xl font-bold mb-4 self-center">Finished</h2>
+        <div id="completeBookshelfList" class="book_list flex flex-row flex-wrap gap-5">
+          <!--      <article class="book_item">-->
+          <!--        <h3>Book Title</h3>-->
+          <!--        <p>Penulis: John Doe</p>-->
+          <!--        <p>Tahun: 2002</p>-->
+          <!--        -->
+          <!--        <div class="action">-->
+          <!--          <button class="green">Belum selesai di Baca</button>-->
+          <!--          <button class="red">Hapus buku</button>-->
+          <!--        </div>-->
+          <!--      </article>-->
+        </div>
       </div>
     </section>
   </main>
 
-  <script src="main.js"></script>
+  <script src="./script/index.js" type="module"></script>
 
 </body>
 
